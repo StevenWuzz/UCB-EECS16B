@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1020" height="760" viewBox="0 0 1020 760" role="img" aria-labelledby="title desc">
+<title id="title">Qualitative CMOS inverter voltage transfer curve</title>
+<desc id="desc">Output versus input, falling from high to low. A dashed diagonal Vout equals Vin intersects near half the supply at the illustrative switching point VM.</desc>
+<rect width="1020" height="760" fill="#ffffff"/>
+<g font-family="Arial, sans-serif">
+<text x="510" y="46" text-anchor="middle" font-size="29" font-weight="bold" fill="#1e293b">CMOS inverter DC voltage-transfer characteristic</text>
+<text x="510" y="79" text-anchor="middle" font-size="18" fill="#475569">Qualitative balanced-inverter example: VDD = 1.00 V, equal threshold magnitudes and strengths</text>
+</g>
+<g stroke="#d8e0e9" stroke-width="1.5"><path d="M170 130 H770 M170 365 H770 M170 600 H770 M170 130 V600 M470 130 V600 M770 130 V600"/></g>
+<path d="M170 115 V600 H797" stroke="#263449" stroke-width="4" fill="none" stroke-linecap="round"/>
+<g stroke="#94a3b8" stroke-width="2.5" stroke-dasharray="10 9"><path d="M170 600 L770 130"/></g>
+<path d="M170 130 C315 130 392 133 431 198 C451 240 455 293 470 365 C489 445 497 504 537 558 C577 600 688 600 770 600" stroke="#2563eb" stroke-width="6" fill="none" stroke-linecap="round"/>
+<circle cx="470" cy="365" r="11" fill="#dc2626" stroke="white" stroke-width="4"/>
+<g stroke="#dc2626" stroke-width="2" stroke-dasharray="8 7"><path d="M470 365 V600 M170 365 H470"/></g>
+<g font-family="Arial, sans-serif" fill="#1e293b" font-size="22">
+<text x="151" y="607" text-anchor="end">0</text>
+<text x="151" y="372" text-anchor="end">0.5</text>
+<text x="151" y="137" text-anchor="end">1.0</text>
+<text x="170" y="635" text-anchor="middle">0</text>
+<text x="470" y="635" text-anchor="middle">0.5</text>
+<text x="770" y="635" text-anchor="middle">1.0</text>
+<text x="500" y="686" text-anchor="middle" font-weight="bold">Input voltage, Vin (V)</text>
+<text x="40" y="365" transform="rotate(-90 40 365)" text-anchor="middle" font-weight="bold">Output voltage, Vout (V)</text>
+<text x="232" y="115" fill="#2563eb" font-weight="bold">Output HIGH</text>
+<text x="642" y="580" fill="#2563eb" font-weight="bold">Output LOW</text>
+<text x="499" y="328" fill="#dc2626" font-weight="bold">Switching point VM</text>
+<text x="630" y="267" fill="#64748b" font-size="19">Vout = Vin</text>
+<text x="510" y="729" text-anchor="middle" fill="#64748b" font-size="17">The curve is illustrative, not a fitted transistor simulation or a no-overlap hard-switch model.</text>
+</g>
+</svg>
