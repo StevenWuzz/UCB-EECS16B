@@ -758,6 +758,10 @@ For any assumed values of $V_{DD}$, $V_{TN}$, and $|V_{TP}|$:
 
 ## 10. A more realistic model: MOSFET currents and switching point
 
+![Qualitative CMOS inverter voltage-transfer curve and switching point](../assets/cmos-voltage-transfer-curve.svg)
+
+*The blue curve illustrates a roughly balanced inverter with a both-ON transition region. It is not the transfer characteristic of the deliberately idealized threshold-gap model.*
+
 An ordinary CMOS inverter is not designed as a pair of perfect ideal switches with a discontinuous transfer characteristic. In a real inverter:
 
 - Current varies with both input voltage and output voltage.
