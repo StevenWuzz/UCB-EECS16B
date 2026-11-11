@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="820" viewBox="0 0 1100 820" role="img" aria-labelledby="title desc">
+<title id="title">CMOS threshold regions for overlap, equality, and gap</title>
+<desc id="desc">Three cases at VDD one volt. Overlap: NMOS turns on at 0.35 V, PMOS turns off at 0.65 V. Equality: both thresholds meet at 0.55 V. Gap: PMOS turns off at 0.50 V, NMOS turns on at 0.60 V.</desc>
+<rect width="1100" height="820" fill="#ffffff"/>
+<g font-family="Arial, sans-serif" fill="#1e293b">
+<text x="550" y="43" font-size="27" font-weight="bold" text-anchor="middle">NMOS and PMOS ON regions vs. input voltage</text>
+<text x="550" y="71" font-size="17" text-anchor="middle">VDD = 1.00 V; idealized threshold-switch model</text>
+</g>
+<g font-family="Arial, sans-serif">
+<rect x="54" y="97" width="992" height="207" rx="13" fill="#f8fafc" stroke="#cbd5e1" />
+<text x="75" y="127" font-size="21" font-weight="bold" fill="#1e293b">A. Overlap: VTN = 0.35 V; |VTP| = 0.35 V; sum 0.70 V &lt; VDD</text>
+<text x="80" y="175" font-size="19" fill="#1e293b">PMOS</text><text x="80" y="219" font-size="19" fill="#1e293b">NMOS</text>
+<rect x="225" y="150" width="760" height="30" rx="5" fill="#e2e8f0"/>
+<rect x="225" y="194" width="760" height="30" rx="5" fill="#e2e8f0"/>
+<rect x="225" y="150" width="494" height="30" rx="5" fill="#0d9488"/>
+<rect x="491" y="194" width="494" height="30" rx="5" fill="#2563eb"/>
+<rect x="491" y="235" width="228" height="21" rx="4" fill="#a855f7" opacity=".8"/>
+<text x="605" y="251" font-size="15" fill="white" text-anchor="middle" font-weight="bold">BOTH ON</text>
+<text x="470" y="170" font-size="16" fill="white" text-anchor="middle" font-weight="bold">PMOS ON</text>
+<text x="738" y="215" font-size="16" fill="white" text-anchor="middle" font-weight="bold">NMOS ON</text>
+<text x="225" y="279" font-size="16" fill="#334155" text-anchor="middle">0 V</text>
+<text x="491" y="279" font-size="16" fill="#334155" text-anchor="middle">0.35 V</text>
+<text x="719" y="279" font-size="16" fill="#334155" text-anchor="middle">0.65 V</text>
+<text x="985" y="279" font-size="16" fill="#334155" text-anchor="middle">1 V</text>
+<rect x="54" y="320" width="992" height="207" rx="13" fill="#f8fafc" stroke="#cbd5e1"/>
+<text x="75" y="350" font-size="21" font-weight="bold" fill="#1e293b">B. Equality: VTN = 0.55 V; |VTP| = 0.45 V; sum = VDD</text>
+<text x="80" y="398" font-size="19" fill="#1e293b">PMOS</text><text x="80" y="442" font-size="19" fill="#1e293b">NMOS</text>
+<rect x="225" y="373" width="760" height="30" rx="5" fill="#e2e8f0"/>
+<rect x="225" y="417" width="760" height="30" rx="5" fill="#e2e8f0"/>
+<rect x="225" y="373" width="418" height="30" rx="5" fill="#0d9488"/>
+<rect x="643" y="417" width="342" height="30" rx="5" fill="#2563eb"/>
+<line x1="643" y1="365" x2="643" y2="465" stroke="#dc2626" stroke-width="3" stroke-dasharray="7,5"/>
+<text x="434" y="393" font-size="16" fill="white" text-anchor="middle" font-weight="bold">PMOS ON</text>
+<text x="814" y="438" font-size="16" fill="white" text-anchor="middle" font-weight="bold">NMOS ON</text>
+<text x="225" y="502" font-size="16" fill="#334155" text-anchor="middle">0 V</text>
+<text x="643" y="502" font-size="16" fill="#dc2626" text-anchor="middle">0.55 V: common boundary</text>
+<text x="985" y="502" font-size="16" fill="#334155" text-anchor="middle">1 V</text>
+<rect x="54" y="543" width="992" height="208" rx="13" fill="#f8fafc" stroke="#cbd5e1"/>
+<text x="75" y="573" font-size="21" font-weight="bold" fill="#1e293b">C. Gap: VTN = 0.60 V; |VTP| = 0.50 V; sum 1.10 V &gt; VDD</text>
+<text x="80" y="621" font-size="19" fill="#1e293b">PMOS</text><text x="80" y="665" font-size="19" fill="#1e293b">NMOS</text>
+<rect x="225" y="596" width="760" height="30" rx="5" fill="#e2e8f0"/>
+<rect x="225" y="640" width="760" height="30" rx="5" fill="#e2e8f0"/>
+<rect x="225" y="596" width="380" height="30" rx="5" fill="#0d9488"/>
+<rect x="681" y="640" width="304" height="30" rx="5" fill="#2563eb"/>
+<rect x="605" y="681" width="76" height="23" rx="4" fill="#f59e0b"/>
+<text x="643" y="697" font-size="12" fill="#111827" text-anchor="middle" font-weight="bold">OFF</text>
+<text x="415" y="616" font-size="16" fill="white" text-anchor="middle" font-weight="bold">PMOS ON</text>
+<text x="830" y="661" font-size="16" fill="white" text-anchor="middle" font-weight="bold">NMOS ON</text>
+<text x="225" y="728" font-size="16" fill="#334155" text-anchor="middle">0 V</text>
+<text x="605" y="728" font-size="16" fill="#334155" text-anchor="middle">0.50 V</text>
+<text x="681" y="728" font-size="16" fill="#334155" text-anchor="middle">0.60 V</text>
+<text x="985" y="728" font-size="16" fill="#334155" text-anchor="middle">1 V</text>
+<text x="550" y="790" font-size="18" fill="#475569" text-anchor="middle">Colored bars show the ON intervals; gray portions show OFF. Endpoint behavior uses strict inequalities.</text>
+</g>
+</svg>
