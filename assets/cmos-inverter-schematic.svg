@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="560" viewBox="0 0 960 560" role="img" aria-labelledby="title desc">
+<title id="title">CMOS inverter schematic</title>
+<desc id="desc">PMOS source at VDD, NMOS source at ground, gates tied together at Vin, drains joined at Vout.</desc>
+<rect width="960" height="560" fill="#ffffff"/>
+<g font-family="Arial, sans-serif" fill="#172334">
+<text x="480" y="38" font-size="26" font-weight="bold" text-anchor="middle">Complementary MOS (CMOS) inverter</text>
+</g>
+<g stroke="#23334c" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<path d="M515 90 V150 M515 240 V315 M515 315 V355 M515 445 V485"/>
+<path d="M500 163 H515 V150 M500 227 H515 V240 M493 163 V227 M461 164 V226"/>
+<path d="M500 370 H515 V355 M500 434 H515 V445 M493 370 V434 M461 370 V434"/>
+<path d="M515 315 H720"/>
+<path d="M315 200 H441 M315 200 V403 H461 M315 315 H190"/>
+<path d="M475 485 H555 M486 495 H544 M498 505 H532"/>
+<path d="M470 90 H560"/>
+</g>
+<circle cx="451" cy="200" r="10" fill="white" stroke="#23334c" stroke-width="4"/>
+<path d="M461 200 H461" stroke="#23334c" stroke-width="4"/>
+<circle cx="515" cy="315" r="7" fill="#16825b"/>
+<circle cx="315" cy="315" r="6" fill="#356dd3"/>
+<circle cx="720" cy="315" r="6" fill="#16825b"/>
+<g font-family="Arial, sans-serif" fill="#172334" font-size="23">
+<text x="578" y="99" font-weight="bold">V<tspan baseline-shift="sub" font-size="16">DD</tspan></text>
+<text x="535" y="155" font-size="19">S<tspan baseline-shift="sub" font-size="13">P</tspan></text>
+<text x="535" y="254" font-size="19">D<tspan baseline-shift="sub" font-size="13">P</tspan></text>
+<text x="535" y="368" font-size="19">D<tspan baseline-shift="sub" font-size="13">N</tspan></text>
+<text x="535" y="453" font-size="19">S<tspan baseline-shift="sub" font-size="13">N</tspan></text>
+<text x="595" y="198" font-weight="bold" fill="#b34d2b">PMOS (pull-up)</text>
+<text x="595" y="405" font-weight="bold" fill="#356dd3">NMOS (pull-down)</text>
+<text x="130" y="305" font-weight="bold" fill="#356dd3">V<tspan baseline-shift="sub" font-size="15">in</tspan></text>
+<text x="730" y="322" font-weight="bold" fill="#16825b">V<tspan baseline-shift="sub" font-size="15">out</tspan></text>
+<text x="555" y="497" font-weight="bold">GND (0 V)</text>
+</g>
+<rect x="80" y="514" width="800" height="33" rx="9" fill="#f1f5f9"/>
+<text x="480" y="536" fill="#344054" text-anchor="middle" font-size="17" font-family="Arial, sans-serif">Common input gates; common output drains. Gate and channel are electrically separated.</text>
+</svg>
