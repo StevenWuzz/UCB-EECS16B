@@ -3,7 +3,7 @@
 > **EECS 16B learning notes.** This is a self-contained derivation of how an NMOS and a PMOS form a NOT gate and, in particular, why an instructor might assume
 >
 > $$
-> \boxed{V_{TN}+\lvert V_{TP}\rvert\ge V_{DD}}
+> \boxed{V_{TN}+\vert V_{TP}\vert\ge V_{DD}}
 > $$
 >
 > **Critical distinction:** This inequality guarantees **at most one** transistor is ON in the ideal threshold-switch model. It does **not** guarantee **exactly one** is ON. If the inequality is strict, there is an input-voltage interval where **both are OFF**. Practical CMOS inverters generally *do* have an overlap-conduction region during a transition.
@@ -40,9 +40,9 @@ Equivalently, $Y=\overline{A}$.
 
 In a physical circuit, logic levels are represented by **ranges of voltages**, rather than abstract symbols. In our idealized example:
 
-- LOW corresponds to approximately $0\ \mathrm V$.
+- LOW corresponds to approximately $0\ \mathrm{V}$.
 - HIGH corresponds to approximately $V_{DD}$, the positive supply voltage.
-- $V_{SS}=0\ \mathrm V$ is our ground/reference rail.
+- $V_{SS}=0\ \mathrm{V}$ is our ground/reference rail.
 - $V_{\mathrm{in}}$ is the externally driven input voltage.
 - $V_{\mathrm{out}}$ is the circuit's output-node voltage.
 
@@ -86,7 +86,7 @@ and $V_{TN}$ is the NMOS threshold voltage (assumed positive here).
 For an **enhancement-mode PMOS**, a sufficiently *negative* gate relative to its source creates a hole inversion channel. We can write its condition without juggling negative numbers:
 
 $$
-V_{SG,P}>\lvert V_{TP}\rvert,
+V_{SG,P}>\vert V_{TP}\vert,
 $$
 
 where
@@ -95,7 +95,7 @@ $$
 V_{SG,P}=V_{S,P}-V_{G,P}
 $$
 
-and $V_{TP}$ is conventionally negative. The positive quantity $\lvert V_{TP}\rvert$ denotes its magnitude.
+and $V_{TP}$ is conventionally negative. The positive quantity $\vert V_{TP}\vert$ denotes its magnitude.
 
 The same PMOS condition could instead be expressed as $V_{GS,P}<V_{TP}$, provided the sign convention is maintained consistently.
 
@@ -130,7 +130,7 @@ Why this layout?
 4. Connecting their **drains** allows whichever transistor is conducting to control the output.
 5. Because their gate-to-source voltages differ, they respond oppositely to the same gate voltage.
 
-Do not confuse **same gate voltage** with **same gate-to-source voltage**: the PMOS source is at $V_{DD}$, while the NMOS source is at $0\ \mathrm V$.
+Do not confuse **same gate voltage** with **same gate-to-source voltage**: the PMOS source is at $V_{DD}$, while the NMOS source is at $0\ \mathrm{V}$.
 
 We assume $0\le V_{\mathrm{in}}\le V_{DD}$, fixed supply rails, enhancement-mode devices, and no body-effect change in thresholds unless explicitly stated.
 
@@ -182,7 +182,7 @@ In particular, **a high input turns the NMOS ON**.
 The PMOS model says
 
 $$
-\text{PMOS ON}\quad\Longleftrightarrow\quad V_{SG,P}>\lvert V_{TP}\rvert.
+\text{PMOS ON}\quad\Longleftrightarrow\quad V_{SG,P}>\vert V_{TP}\vert.
 $$
 
 By the wiring,
@@ -204,28 +204,28 @@ $$
 Apply the threshold criterion:
 
 $$
-V_{DD}-V_{\mathrm{in}}>\lvert V_{TP}\rvert.
+V_{DD}-V_{\mathrm{in}}>\vert V_{TP}\vert.
 $$
 
 Subtract $V_{DD}$ on both sides and multiply by $-1$, which **reverses** the inequality:
 
 $$
 \begin{aligned}
--V_{\mathrm{in}}&>\lvert V_{TP}\rvert-V_{DD},\\
-V_{\mathrm{in}}&<V_{DD}-\lvert V_{TP}\rvert.
+-V_{\mathrm{in}}&>\vert V_{TP}\vert-V_{DD},\\
+V_{\mathrm{in}}&<V_{DD}-\vert V_{TP}\vert.
 \end{aligned}
 $$
 
 Thus
 
 $$
-\boxed{\text{PMOS ON}\quad\Longleftrightarrow\quad V_{\mathrm{in}}<V_{DD}-\lvert V_{TP}\rvert}
+\boxed{\text{PMOS ON}\quad\Longleftrightarrow\quad V_{\mathrm{in}}<V_{DD}-\vert V_{TP}\vert}
 $$
 
 The ideal-OFF condition is
 
 $$
-\boxed{\text{PMOS OFF}\quad\Longleftrightarrow\quad V_{\mathrm{in}}\ge V_{DD}-\lvert V_{TP}\rvert}
+\boxed{\text{PMOS OFF}\quad\Longleftrightarrow\quad V_{\mathrm{in}}\ge V_{DD}-\vert V_{TP}\vert}
 $$
 
 In particular, **a low input turns the PMOS ON**.
@@ -235,7 +235,7 @@ In particular, **a low input turns the PMOS ON**.
 Define two input boundaries for convenience:
 
 $$
-a:=V_{TN}\qquad\text{and}\qquad b:=V_{DD}-\lvert V_{TP}\rvert.
+a:=V_{TN}\qquad\text{and}\qquad b:=V_{DD}-\vert V_{TP}\vert.
 $$
 
 Then
@@ -249,14 +249,14 @@ Remember: **$a$ is where NMOS begins conducting; $b$ is where PMOS stops conduct
 
 ## 5. The two stable logic states
 
-Suppose $V_{DD}=1.00\ \mathrm V$ and each device's threshold magnitude is $0.35\ \mathrm V$. First analyze the two digital input endpoints.
+Suppose $V_{DD}=1.00\ \mathrm{V}$ and each device's threshold magnitude is $0.35\ \mathrm{V}$. First analyze the two digital input endpoints.
 
 ### 5.1 Input LOW: $V_{\mathrm{in}}=0$
 
 NMOS:
 
 $$
-V_{GS,N}=V_{\mathrm{in}}-0=0-0=0\ \mathrm V.
+V_{GS,N}=V_{\mathrm{in}}-0=0-0=0\ \mathrm{V}.
 $$
 
 Because $0\le 0.35$, the NMOS is **OFF**.
@@ -264,7 +264,7 @@ Because $0\le 0.35$, the NMOS is **OFF**.
 PMOS:
 
 $$
-V_{SG,P}=V_{DD}-V_{\mathrm{in}}=1.00-0=1.00\ \mathrm V.
+V_{SG,P}=V_{DD}-V_{\mathrm{in}}=1.00-0=1.00\ \mathrm{V}.
 $$
 
 Because $1.00>0.35$, the PMOS is **ON**.
@@ -272,17 +272,17 @@ Because $1.00>0.35$, the PMOS is **ON**.
 The output is pulled toward the positive supply through the PMOS:
 
 $$
-\boxed{V_{\mathrm{out}}\approx V_{DD}=1.00\ \mathrm V}
+\boxed{V_{\mathrm{out}}\approx V_{DD}=1.00\ \mathrm{V}}
 $$
 
 Therefore the logic output is HIGH, the inverse of the LOW input.
 
-### 5.2 Input HIGH: $V_{\mathrm{in}}=V_{DD}=1.00\ \mathrm V$
+### 5.2 Input HIGH: $V_{\mathrm{in}}=V_{DD}=1.00\ \mathrm{V}$
 
 NMOS:
 
 $$
-V_{GS,N}=1.00-0=1.00\ \mathrm V>0.35\ \mathrm V.
+V_{GS,N}=1.00-0=1.00\ \mathrm{V}>0.35\ \mathrm{V}.
 $$
 
 Therefore NMOS is **ON**.
@@ -290,7 +290,7 @@ Therefore NMOS is **ON**.
 PMOS:
 
 $$
-V_{SG,P}=1.00-1.00=0\ \mathrm V\le 0.35\ \mathrm V.
+V_{SG,P}=1.00-1.00=0\ \mathrm{V}\le 0.35\ \mathrm{V}.
 $$
 
 Therefore PMOS is **OFF**.
@@ -298,7 +298,7 @@ Therefore PMOS is **OFF**.
 The output is pulled to ground through the NMOS:
 
 $$
-\boxed{V_{\mathrm{out}}\approx V_{SS}=0\ \mathrm V}
+\boxed{V_{\mathrm{out}}\approx V_{SS}=0\ \mathrm{V}}
 $$
 
 Therefore the logic output is LOW, the inverse of the HIGH input.
@@ -317,7 +317,7 @@ Therefore the logic output is LOW, the inverse of the HIGH input.
 The assumption in question is
 
 $$
-\boxed{V_{TN}+\lvert V_{TP}\rvert\ge V_{DD}}
+\boxed{V_{TN}+\vert V_{TP}\vert\ge V_{DD}}
 $$
 
 We want to know precisely why it prevents the two devices from being ON simultaneously in the ideal model.
@@ -329,26 +329,26 @@ For **both** transistors to be ON, both of these must hold:
 $$
 \begin{cases}
 V_{\mathrm{in}}>V_{TN}, &\text{(NMOS)}\\
-V_{\mathrm{in}}<V_{DD}-\lvert V_{TP}\rvert. &\text{(PMOS)}
+V_{\mathrm{in}}<V_{DD}-\vert V_{TP}\vert. &\text{(PMOS)}
 \end{cases}
 $$
 
 Combine them into a single interval:
 
 $$
-\boxed{V_{TN}<V_{\mathrm{in}}<V_{DD}-\lvert V_{TP}\rvert}
+\boxed{V_{TN}<V_{\mathrm{in}}<V_{DD}-\vert V_{TP}\vert}
 $$
 
 This interval contains at least one real number **if and only if** its left endpoint is strictly less than its right endpoint:
 
 $$
-V_{TN}<V_{DD}-\lvert V_{TP}\rvert.
+V_{TN}<V_{DD}-\vert V_{TP}\vert.
 $$
 
-Add $\lvert V_{TP}\rvert$ to both sides:
+Add $\vert V_{TP}\vert$ to both sides:
 
 $$
-\boxed{V_{TN}+\lvert V_{TP}\rvert<V_{DD}}
+\boxed{V_{TN}+\vert V_{TP}\vert<V_{DD}}
 $$
 
 So the **necessary and sufficient condition for a nonempty both-ON interval** (within the assumed rail-to-rail range and conventional positive thresholds) is that the threshold sum is *less than* the supply.
@@ -356,16 +356,16 @@ So the **necessary and sufficient condition for a nonempty both-ON interval** (w
 Its logical negation is
 
 $$
-\neg\big(V_{TN}+\lvert V_{TP}\rvert<V_{DD}\big)
+\neg\big(V_{TN}+\vert V_{TP}\vert<V_{DD}\big)
 \quad\Longleftrightarrow\quad
-V_{TN}+\lvert V_{TP}\rvert\ge V_{DD}.
+V_{TN}+\vert V_{TP}\vert\ge V_{DD}.
 $$
 
 Hence
 
 $$
 \boxed{
-V_{TN}+\lvert V_{TP}\rvert\ge V_{DD}
+V_{TN}+\vert V_{TP}\vert\ge V_{DD}
 \quad\Longrightarrow\quad
 \text{both cannot be ON together}.
 }
@@ -395,22 +395,22 @@ Suppose, *for contradiction*, that both transistors were ON. Then
 $$
 V_{GS,N}>V_{TN}
 \quad\text{and}\quad
-V_{SG,P}>\lvert V_{TP}\rvert.
+V_{SG,P}>\vert V_{TP}\vert.
 $$
 
 Adding the strict inequalities gives
 
 $$
-V_{GS,N}+V_{SG,P}>V_{TN}+\lvert V_{TP}\rvert.
+V_{GS,N}+V_{SG,P}>V_{TN}+\vert V_{TP}\vert.
 $$
 
 But the left side equals $V_{DD}$. Therefore simultaneous conduction requires
 
 $$
-V_{DD}>V_{TN}+\lvert V_{TP}\rvert.
+V_{DD}>V_{TN}+\vert V_{TP}\vert.
 $$
 
-That contradicts $V_{TN}+\lvert V_{TP}\rvert\ge V_{DD}$. Therefore simultaneous ON is impossible under the assumption. **QED.**
+That contradicts $V_{TN}+\vert V_{TP}\vert\ge V_{DD}$. Therefore simultaneous ON is impossible under the assumption. **QED.**
 
 ### 6.3 What the proof does *not* prove
 
@@ -430,12 +430,12 @@ When the sum is strictly **greater** than $V_{DD}$, a both-OFF interval necessar
 Recall
 
 $$
-a=V_{TN},\qquad b=V_{DD}-\lvert V_{TP}\rvert.
+a=V_{TN},\qquad b=V_{DD}-\vert V_{TP}\vert.
 $$
 
-Compare $a$ with $b$, equivalently compare the sum $V_{TN}+\lvert V_{TP}\rvert$ with $V_{DD}$.
+Compare $a$ with $b$, equivalently compare the sum $V_{TN}+\vert V_{TP}\vert$ with $V_{DD}$.
 
-### 7.1 Case A: $V_{TN}+\lvert V_{TP}\rvert<V_{DD}$ (overlap)
+### 7.1 Case A: $V_{TN}+\vert V_{TP}\vert<V_{DD}$ (overlap)
 
 Here $a<b$. Consequently, the nonempty interval
 
@@ -451,8 +451,8 @@ $$
 \begin{aligned}
 \Delta V_{\mathrm{overlap}}
 &=b-a\\
-&=(V_{DD}-\lvert V_{TP}\rvert)-V_{TN}\\
-&=\boxed{V_{DD}-\big(V_{TN}+\lvert V_{TP}\rvert\big)>0}
+&=(V_{DD}-\vert V_{TP}\vert)-V_{TN}\\
+&=\boxed{V_{DD}-\big(V_{TN}+\vert V_{TP}\vert\big)>0}
 \end{aligned}
 $$
 
@@ -465,7 +465,7 @@ $$
 
 This does **not** imply the output is exactly $V_{DD}/2$: its value depends on the relative transistor currents.
 
-### 7.2 Case B: $V_{TN}+\lvert V_{TP}\rvert=V_{DD}$ (common boundary)
+### 7.2 Case B: $V_{TN}+\vert V_{TP}\vert=V_{DD}$ (common boundary)
 
 Here $a=b$.
 
@@ -475,7 +475,7 @@ Here $a=b$.
 
 There is neither a finite overlap interval nor a finite gap. The behavior precisely at the boundary is a convention of the ideal switch model; physical transistors do not change discontinuously this way.
 
-### 7.3 Case C: $V_{TN}+\lvert V_{TP}\rvert>V_{DD}$ (dead band/gap)
+### 7.3 Case C: $V_{TN}+\vert V_{TP}\vert>V_{DD}$ (dead band/gap)
 
 Here $b<a$. An input satisfying
 
@@ -491,8 +491,8 @@ $$
 \begin{aligned}
 \Delta V_{\mathrm{gap}}
 &=a-b\\
-&=V_{TN}-(V_{DD}-\lvert V_{TP}\rvert)\\
-&=\boxed{V_{TN}+\lvert V_{TP}\rvert-V_{DD}>0}
+&=V_{TN}-(V_{DD}-\vert V_{TP}\vert)\\
+&=\boxed{V_{TN}+\vert V_{TP}\vert-V_{DD}>0}
 \end{aligned}
 $$
 
@@ -502,9 +502,9 @@ This is a **high-impedance (floating) output region**, not a third stable digita
 
 | Threshold relationship | Boundary ordering | Middle input interval | Circuit interpretation |
 |---|---|---|---|
-| $V_{TN}+\lvert V_{TP}\rvert<V_{DD}$ | $a<b$ | $a<V_{\mathrm{in}}<b$ | Both ON |
-| $V_{TN}+\lvert V_{TP}\rvert=V_{DD}$ | $a=b$ | No finite interval | Both OFF at exact boundary under strict ideal model |
-| $V_{TN}+\lvert V_{TP}\rvert>V_{DD}$ | $a>b$ | $b\le V_{\mathrm{in}}\le a$ | Both OFF |
+| $V_{TN}+\vert V_{TP}\vert<V_{DD}$ | $a<b$ | $a<V_{\mathrm{in}}<b$ | Both ON |
+| $V_{TN}+\vert V_{TP}\vert=V_{DD}$ | $a=b$ | No finite interval | Both OFF at exact boundary under strict ideal model |
+| $V_{TN}+\vert V_{TP}\vert>V_{DD}$ | $a>b$ | $b\le V_{\mathrm{in}}\le a$ | Both OFF |
 
 **Endpoint note:** This table treats equality as OFF. With physically realistic subthreshold current, “ON” and “OFF” are not absolute states.
 
@@ -512,36 +512,36 @@ This is a **high-impedance (floating) output region**, not a third stable digita
 
 All voltages below are illustrative values selected for the mathematical argument, not specifications of any particular semiconductor process.
 
-### Example A: overlap — $V_{DD}=1.00$ V, $V_{TN}=0.35$ V, $\lvert V_{TP}\rvert=0.35$ V
+### Example A: overlap — $V_{DD}=1.00$ V, $V_{TN}=0.35$ V, $\vert V_{TP}\vert=0.35$ V
 
 First find the PMOS boundary:
 
 $$
-b=V_{DD}-\lvert V_{TP}\rvert=1.00-0.35=\boxed{0.65\ \mathrm V}.
+b=V_{DD}-\vert V_{TP}\vert=1.00-0.35=\boxed{0.65\ \mathrm{V}}.
 $$
 
 The NMOS boundary is
 
 $$
-a=V_{TN}=\boxed{0.35\ \mathrm V}.
+a=V_{TN}=\boxed{0.35\ \mathrm{V}}.
 $$
 
 Check the sum:
 
 $$
-0.35+0.35=0.70<1.00\ \mathrm V.
+0.35+0.35=0.70<1.00\ \mathrm{V}.
 $$
 
 Therefore both are ON whenever
 
 $$
-0.35<V_{\mathrm{in}}<0.65\ \mathrm V.
+0.35<V_{\mathrm{in}}<0.65\ \mathrm{V}.
 $$
 
 The overlap width is
 
 $$
-\Delta V_{\mathrm{overlap}}=0.65-0.35=\boxed{0.30\ \mathrm V}.
+\Delta V_{\mathrm{overlap}}=0.65-0.35=\boxed{0.30\ \mathrm{V}}.
 $$
 
 Now evaluate some inputs. Define **overdrive** as the amount above the relevant threshold:
@@ -549,7 +549,7 @@ Now evaluate some inputs. Define **overdrive** as the amount above the relevant 
 $$
 V_{OV,N}=V_{\mathrm{in}}-V_{TN},
 \qquad
-V_{OV,P}=V_{DD}-V_{\mathrm{in}}-\lvert V_{TP}\rvert.
+V_{OV,P}=V_{DD}-V_{\mathrm{in}}-\vert V_{TP}\vert.
 $$
 
 An overdrive is positive when that device is ON in our ideal criterion.
@@ -566,21 +566,21 @@ An overdrive is positive when that device is ON in our ideal criterion.
 
 Notice that the overlap interval is real and has nonzero width. *Both ON* does not mean *equal current* at every input in that interval.
 
-### Example B: gap — $V_{DD}=1.00$ V, $V_{TN}=0.60$ V, $\lvert V_{TP}\rvert=0.50$ V
+### Example B: gap — $V_{DD}=1.00$ V, $V_{TN}=0.60$ V, $\vert V_{TP}\vert=0.50$ V
 
 Calculate the two switching boundaries:
 
 $$
 \begin{aligned}
-a&=V_{TN}=0.60\ \mathrm V,\\
-b&=V_{DD}-\lvert V_{TP}\rvert=1.00-0.50=0.50\ \mathrm V.
+a&=V_{TN}=0.60\ \mathrm{V},\\
+b&=V_{DD}-\vert V_{TP}\vert=1.00-0.50=0.50\ \mathrm{V}.
 \end{aligned}
 $$
 
 Check the assumption:
 
 $$
-V_{TN}+\lvert V_{TP}\rvert=0.60+0.50=1.10\ \mathrm V\ge 1.00\ \mathrm V.
+V_{TN}+\vert V_{TP}\vert=0.60+0.50=1.10\ \mathrm{V}\ge 1.00\ \mathrm{V}.
 $$
 
 Because $b<a$, no input can simultaneously be *less than 0.50 V* and *greater than 0.60 V*.
@@ -588,46 +588,46 @@ Because $b<a$, no input can simultaneously be *less than 0.50 V* and *greater th
 The ideal both-OFF range is
 
 $$
-\boxed{0.50\le V_{\mathrm{in}}\le0.60\ \mathrm V}
+\boxed{0.50\le V_{\mathrm{in}}\le0.60\ \mathrm{V}}
 $$
 
 Its width is
 
 $$
-\Delta V_{\mathrm{gap}}=0.60-0.50=\boxed{0.10\ \mathrm V}.
+\Delta V_{\mathrm{gap}}=0.60-0.50=\boxed{0.10\ \mathrm{V}}.
 $$
 
 At $V_{\mathrm{in}}=0.55$ V, explicitly evaluate both devices:
 
 $$
 \begin{aligned}
-V_{GS,N}&=0.55-0=0.55\ \mathrm V<0.60\ \mathrm V
+V_{GS,N}&=0.55-0=0.55\ \mathrm{V}<0.60\ \mathrm{V}
 &&\Rightarrow \text{NMOS OFF},\\
-V_{SG,P}&=1.00-0.55=0.45\ \mathrm V<0.50\ \mathrm V
+V_{SG,P}&=1.00-0.55=0.45\ \mathrm{V}<0.50\ \mathrm{V}
 &&\Rightarrow \text{PMOS OFF}.
 \end{aligned}
 $$
 
 So the output is **not actively driven HIGH or LOW**. See Section 9 for why it may retain an earlier voltage temporarily.
 
-### Example C: equality — $V_{DD}=1.00$ V, $V_{TN}=0.55$ V, $\lvert V_{TP}\rvert=0.45$ V
+### Example C: equality — $V_{DD}=1.00$ V, $V_{TN}=0.55$ V, $\vert V_{TP}\vert=0.45$ V
 
 The threshold sum is
 
 $$
-0.55+0.45=\boxed{1.00\ \mathrm V=V_{DD}}.
+0.55+0.45=\boxed{1.00\ \mathrm{V}=V_{DD}}.
 $$
 
 For NMOS:
 
 $$
-V_{\mathrm{in}}>0.55\ \mathrm V.
+V_{\mathrm{in}}>0.55\ \mathrm{V}.
 $$
 
 For PMOS:
 
 $$
-V_{\mathrm{in}}<1.00-0.45=0.55\ \mathrm V.
+V_{\mathrm{in}}<1.00-0.45=0.55\ \mathrm{V}.
 $$
 
 No input satisfies both. There is also no nonzero-width both-OFF gap.
@@ -637,29 +637,29 @@ At **exactly** $V_{\mathrm{in}}=0.55$ V:
 $$
 V_{GS,N}=0.55=V_{TN},
 \qquad
-V_{SG,P}=0.45=\lvert V_{TP}\rvert.
+V_{SG,P}=0.45=\vert V_{TP}\vert.
 $$
 
 Since our ideal ON rule uses $>$, **both are classed OFF at equality**.
 
 ### Example D: use the instructor's low-supply range
 
-Suppose $V_{DD}=0.80$ V, $V_{TN}=0.45$ V, and $\lvert V_{TP}\rvert=0.45$ V. Then
+Suppose $V_{DD}=0.80$ V, $V_{TN}=0.45$ V, and $\vert V_{TP}\vert=0.45$ V. Then
 
 $$
-V_{TN}+\lvert V_{TP}\rvert=0.90\ \mathrm V>0.80\ \mathrm V.
+V_{TN}+\vert V_{TP}\vert=0.90\ \mathrm{V}>0.80\ \mathrm{V}.
 $$
 
 PMOS turns OFF at
 
 $$
-b=0.80-0.45=\boxed{0.35\ \mathrm V}
+b=0.80-0.45=\boxed{0.35\ \mathrm{V}}
 $$
 
 while NMOS turns ON only above
 
 $$
-a=\boxed{0.45\ \mathrm V}.
+a=\boxed{0.45\ \mathrm{V}}.
 $$
 
 Thus the range $0.35\le V_{\mathrm{in}}\le0.45$ V is a **both-OFF gap**, even though the inverter still behaves correctly at the two logical endpoints $0$ and $0.80$ V.
@@ -746,12 +746,12 @@ In reality, leakage, loading, parasitic coupling, and other nonideal effects can
 
 ### 9.4 Decision procedure for an arbitrary input
 
-For any assumed values of $V_{DD}$, $V_{TN}$, and $\lvert V_{TP}\rvert$:
+For any assumed values of $V_{DD}$, $V_{TN}$, and $\vert V_{TP}\vert$:
 
 1. Compute $V_{GS,N}=V_{\mathrm{in}}$.
 2. Compute $V_{SG,P}=V_{DD}-V_{\mathrm{in}}$.
 3. Test $V_{GS,N}>V_{TN}$ for NMOS.
-4. Test $V_{SG,P}>\lvert V_{TP}\rvert$ for PMOS.
+4. Test $V_{SG,P}>\vert V_{TP}\vert$ for PMOS.
 5. If only PMOS passes, output tends HIGH. If only NMOS passes, it tends LOW.
 6. If both pass, calculate/compare the two drain currents; you cannot infer the analog output from threshold tests alone.
 7. If neither passes, the ideal output floats; you need an initial condition, load, or leakage model.
@@ -793,8 +793,8 @@ $$
 and
 
 $$
-I_P=\frac{\beta_P}{2}(V_{SG,P}-\lvert V_{TP}\rvert)^2
-=\frac{\beta_P}{2}(V_{DD}-V_{\mathrm{in}}-\lvert V_{TP}\rvert)^2.
+I_P=\frac{\beta_P}{2}(V_{SG,P}-\vert V_{TP}\vert)^2
+=\frac{\beta_P}{2}(V_{DD}-V_{\mathrm{in}}-\vert V_{TP}\vert)^2.
 $$
 
 These formulas apply only when each device is ON **and** in the assumed saturation region.
@@ -807,7 +807,7 @@ $$
 V_{DS,N}=V_{\mathrm{out}}\ge V_{GS,N}-V_{TN}=V_{\mathrm{in}}-V_{TN};\\
 \text{PMOS saturation: }&
 V_{SD,P}=V_{DD}-V_{\mathrm{out}}
-\ge V_{SG,P}-\lvert V_{TP}\rvert=V_{DD}-V_{\mathrm{in}}-\lvert V_{TP}\rvert.
+\ge V_{SG,P}-\vert V_{TP}\vert=V_{DD}-V_{\mathrm{in}}-\vert V_{TP}\vert.
 \end{aligned}
 $$
 
@@ -826,7 +826,7 @@ At steady state without a DC load, set the drain-current magnitudes equal:
 $$
 \frac{\beta_N}{2}(V_M-V_{TN})^2
 =
-\frac{\beta_P}{2}(V_{DD}-V_M-\lvert V_{TP}\rvert)^2.
+\frac{\beta_P}{2}(V_{DD}-V_M-\vert V_{TP}\vert)^2.
 $$
 
 Multiply by $2$:
@@ -834,7 +834,7 @@ Multiply by $2$:
 $$
 \beta_N(V_M-V_{TN})^2
 =
-\beta_P(V_{DD}-V_M-\lvert V_{TP}\rvert)^2.
+\beta_P(V_{DD}-V_M-\vert V_{TP}\vert)^2.
 $$
 
 Both quantities inside parentheses are **positive** under the both-ON assumption. Take positive square roots:
@@ -842,7 +842,7 @@ Both quantities inside parentheses are **positive** under the both-ON assumption
 $$
 \sqrt{\beta_N}(V_M-V_{TN})
 =
-\sqrt{\beta_P}(V_{DD}-V_M-\lvert V_{TP}\rvert).
+\sqrt{\beta_P}(V_{DD}-V_M-\vert V_{TP}\vert).
 $$
 
 Distribute:
@@ -850,7 +850,7 @@ Distribute:
 $$
 \sqrt{\beta_N}V_M-\sqrt{\beta_N}V_{TN}
 =
-\sqrt{\beta_P}(V_{DD}-\lvert V_{TP}\rvert)-\sqrt{\beta_P}V_M.
+\sqrt{\beta_P}(V_{DD}-\vert V_{TP}\vert)-\sqrt{\beta_P}V_M.
 $$
 
 Collect terms containing $V_M$ on the left:
@@ -859,7 +859,7 @@ $$
 (\sqrt{\beta_N}+\sqrt{\beta_P})V_M
 =
 \sqrt{\beta_N}V_{TN}
-+\sqrt{\beta_P}(V_{DD}-\lvert V_{TP}\rvert).
++\sqrt{\beta_P}(V_{DD}-\vert V_{TP}\vert).
 $$
 
 Divide:
@@ -868,19 +868,19 @@ $$
 \boxed{
 V_M=
 \frac{\sqrt{\beta_N}V_{TN}
-+\sqrt{\beta_P}(V_{DD}-\lvert V_{TP}\rvert)}
++\sqrt{\beta_P}(V_{DD}-\vert V_{TP}\vert)}
 {\sqrt{\beta_N}+\sqrt{\beta_P}}.
 }
 $$
 
-This is a **weighted average** of the two ON boundaries, $a=V_{TN}$ and $b=V_{DD}-\lvert V_{TP}\rvert$. In the overlap case, it lies between them.
+This is a **weighted average** of the two ON boundaries, $a=V_{TN}$ and $b=V_{DD}-\vert V_{TP}\vert$. In the overlap case, it lies between them.
 
-If $\beta_N=\beta_P$ and $V_{TN}=\lvert V_{TP}\rvert$, then
+If $\beta_N=\beta_P$ and $V_{TN}=\vert V_{TP}\vert$, then
 
 $$
 \begin{aligned}
 V_M
-&=\frac{V_{TN}+V_{DD}-\lvert V_{TP}\rvert}{2}\\
+&=\frac{V_{TN}+V_{DD}-\vert V_{TP}\vert}{2}\\
 &=\boxed{\frac{V_{DD}}{2}}.
 \end{aligned}
 $$
@@ -889,12 +889,12 @@ Thus the familiar half-supply trip point follows from **symmetry assumptions**; 
 
 ### 10.3 Numerical trip-point calculations
 
-**Balanced case.** Choose $V_{DD}=1.00$ V, $V_{TN}=\lvert V_{TP}\rvert=0.35$ V, and $\beta_N=\beta_P$. Then
+**Balanced case.** Choose $V_{DD}=1.00$ V, $V_{TN}=\vert V_{TP}\vert=0.35$ V, and $\beta_N=\beta_P$. Then
 
 $$
 V_M=\frac{0.35+(1.00-0.35)}{2}
 =\frac{1.00}{2}
-=\boxed{0.50\ \mathrm V}.
+=\boxed{0.50\ \mathrm{V}}.
 $$
 
 This is within the overlap interval $(0.35,0.65)$ V.
@@ -906,7 +906,7 @@ $$
 V_M
 &=\frac{2(0.35)+(1.00-0.35)}{2+1}\\
 &=\frac{0.70+0.65}{3}\\
-&=\boxed{0.45\ \mathrm V}.
+&=\boxed{0.45\ \mathrm{V}}.
 \end{aligned}
 $$
 
@@ -965,11 +965,11 @@ $$
 E_C
 &=\int_0^{C_LV_{DD}}\frac{Q}{C_L}\,dQ\\
 &=\left[\frac{Q^2}{2C_L}\right]_0^{C_LV_{DD}}\\
-&=\boxed{\frac12 C_LV_{DD}^2}.
+&=\boxed{\frac{1}{2} C_LV_{DD}^2}.
 \end{aligned}
 $$
 
-During an ideal 0-to-1 charging transition from a fixed-voltage supply, the supply delivers $E_{\mathrm{supply}}=V_{DD}\Delta Q=C_LV_{DD}^2$. Half becomes stored capacitor energy and approximately half is dissipated in the pull-up path. When the output falls from 1 to 0, the stored $\frac12C_LV_{DD}^2$ is dissipated in the pull-down path (in conventional non-energy-recovering CMOS).
+During an ideal 0-to-1 charging transition from a fixed-voltage supply, the supply delivers $E_{\mathrm{supply}}=V_{DD}\Delta Q=C_LV_{DD}^2$. Half becomes stored capacitor energy and approximately half is dissipated in the pull-up path. When the output falls from 1 to 0, the stored $\frac{1}{2}C_LV_{DD}^2$ is dissipated in the pull-down path (in conventional non-energy-recovering CMOS).
 
 Therefore a complete 0→1→0 cycle costs approximately
 
@@ -984,8 +984,8 @@ from the supply, ignoring short-circuit currents and leakage.
 Suppose
 
 $$
-C_L=20\ \mathrm{fF}=20\times10^{-15}\ \mathrm F,
-\qquad V_{DD}=1.00\ \mathrm V.
+C_L=20\ \mathrm{fF}=20\times10^{-15}\ \mathrm{F},
+\qquad V_{DD}=1.00\ \mathrm{V}.
 $$
 
 A charge event transfers
@@ -998,7 +998,7 @@ $$
 The capacitor stores
 
 $$
-E_C=\frac12(20\times10^{-15})(1)^2
+E_C=\frac{1}{2}(20\times10^{-15})(1)^2
 =\boxed{10\ \mathrm{fJ}}.
 $$
 
@@ -1018,8 +1018,8 @@ $$
 P_{\mathrm{dynamic}}
 &=\alpha C_LV_{DD}^2 f\\
 &=0.2(20\times10^{-15})(1.00)^2(100\times10^6)\\
-&=4\times10^{-7}\ \mathrm W\\
-&=\boxed{0.40\ \mu\mathrm W}.
+&=4\times10^{-7}\ \mathrm{W}\\
+&=\boxed{0.40\ \mu\mathrm{W}}.
 \end{aligned}
 $$
 
@@ -1037,7 +1037,7 @@ The instructor's no-overlap assumption eliminates simultaneous **ideal ON** stat
 
 ### 12.1 The assumption is a teaching convenience, not a standard CMOS requirement
 
-In practical complementary MOS logic, designers generally arrange for a useful, steep voltage-transfer characteristic with adequate noise margins, and **transient overlap conduction is normal**. Requiring $V_{TN}+\lvert V_{TP}\rvert\ge V_{DD}$ is *not* a universal requirement for making an inverter.
+In practical complementary MOS logic, designers generally arrange for a useful, steep voltage-transfer characteristic with adequate noise margins, and **transient overlap conduction is normal**. Requiring $V_{TN}+\vert V_{TP}\vert\ge V_{DD}$ is *not* a universal requirement for making an inverter.
 
 The assumption is particularly revealing at a supply voltage such as $0.7$–$1.0$ V (the range written in the lecture screenshot), where thresholds may be a significant fraction of $V_{DD}$. But **actual threshold values are process-, device-, and bias-dependent**; the video annotation alone does not specify a process model.
 
@@ -1046,7 +1046,7 @@ The assumption is particularly revealing at a supply voltage such as $0.7$–$1.
 | Incorrect shortcut | Correct reasoning |
 |---|---|
 | “Both transistors share a gate, so they see the same gate-to-source voltage.” | They share $V_G$, but NMOS uses $V_G-0$ and PMOS uses $V_{DD}-V_G$. |
-| “A PMOS turns ON when its gate is at 0 V.” | More generally it turns ON when $V_{SG}>\lvert V_{TP}\rvert$. Zero volts happens to work here if $V_{DD}>\lvert V_{TP}\rvert$. |
+| “A PMOS turns ON when its gate is at 0 V.” | More generally it turns ON when $V_{SG}>\vert V_{TP}\vert$. Zero volts happens to work here if $V_{DD}>\vert V_{TP}\vert$. |
 | “$\ge$ means one transistor is always ON.” | It means **no two ON at once**. The strict $>$ case produces a both-OFF region. |
 | “Both OFF means output LOW.” | Both OFF means **output floating** in the ideal model; voltage depends on history/load. |
 | “Both ON implies output = half the supply.” | Output comes from KCL and transistor strengths; half supply is a special symmetric case. |
@@ -1073,13 +1073,13 @@ Each network is constructed so the pull-up and pull-down implement complementary
 
 ### Problem 1 — derive the transistor states
 
-An inverter has $V_{DD}=1.20$ V, $V_{TN}=0.40$ V, $\lvert V_{TP}\rvert=0.45$ V. Determine both device states at $V_{\mathrm{in}}=0.30$, $0.50$, $0.70$, and $1.00$ V.
+An inverter has $V_{DD}=1.20$ V, $V_{TN}=0.40$ V, $\vert V_{TP}\vert=0.45$ V. Determine both device states at $V_{\mathrm{in}}=0.30$, $0.50$, $0.70$, and $1.00$ V.
 
 **Solution.** Compute:
 
 $$
-a=V_{TN}=0.40\ \mathrm V,\qquad
-b=V_{DD}-\lvert V_{TP}\rvert=1.20-0.45=0.75\ \mathrm V.
+a=V_{TN}=0.40\ \mathrm{V},\qquad
+b=V_{DD}-\vert V_{TP}\vert=1.20-0.45=0.75\ \mathrm{V}.
 $$
 
 NMOS ON iff $V_{\mathrm{in}}>0.40$ V; PMOS ON iff $V_{\mathrm{in}}<0.75$ V.
@@ -1091,53 +1091,53 @@ NMOS ON iff $V_{\mathrm{in}}>0.40$ V; PMOS ON iff $V_{\mathrm{in}}<0.75$ V.
 | 0.70 V | Yes | Yes | Both conduct; use current model for output |
 | 1.00 V | Yes | No | Output pulled LOW |
 
-The overlap width is $0.75-0.40=\boxed{0.35\ \mathrm V}$.
+The overlap width is $0.75-0.40=\boxed{0.35\ \mathrm{V}}$.
 
 ### Problem 2 — identify the both-OFF region
 
-Let $V_{DD}=0.90$ V, $V_{TN}=0.55$ V, and $\lvert V_{TP}\rvert=0.50$ V. Find the interval where neither device is ON.
+Let $V_{DD}=0.90$ V, $V_{TN}=0.55$ V, and $\vert V_{TP}\vert=0.50$ V. Find the interval where neither device is ON.
 
 **Solution.** First:
 
 $$
-a=0.55,\qquad b=0.90-0.50=0.40\ \mathrm V.
+a=0.55,\qquad b=0.90-0.50=0.40\ \mathrm{V}.
 $$
 
 Both OFF requires $V_{\mathrm{in}}\le a$ (NMOS OFF) and $V_{\mathrm{in}}\ge b$ (PMOS OFF). Combining:
 
 $$
-\boxed{0.40\le V_{\mathrm{in}}\le0.55\ \mathrm V}
+\boxed{0.40\le V_{\mathrm{in}}\le0.55\ \mathrm{V}}
 $$
 
-The gap is $\boxed{0.15\ \mathrm V}$ wide. The output is floating under the ideal model.
+The gap is $\boxed{0.15\ \mathrm{V}}$ wide. The output is floating under the ideal model.
 
 ### Problem 3 — reverse the design problem
 
-For $V_{DD}=1.00$ V and $V_{TN}=0.42$ V, what minimum $\lvert V_{TP}\rvert$ prevents both transistors from being ON simultaneously?
+For $V_{DD}=1.00$ V and $V_{TN}=0.42$ V, what minimum $\vert V_{TP}\vert$ prevents both transistors from being ON simultaneously?
 
 **Solution.** Use the instructor's condition:
 
 $$
-V_{TN}+\lvert V_{TP}\rvert\ge V_{DD}.
+V_{TN}+\vert V_{TP}\vert\ge V_{DD}.
 $$
 
 Substitute:
 
 $$
-0.42+\lvert V_{TP}\rvert\ge1.00.
+0.42+\vert V_{TP}\vert\ge1.00.
 $$
 
 Subtract $0.42$:
 
 $$
-\boxed{\lvert V_{TP}\rvert\ge0.58\ \mathrm V}
+\boxed{\vert V_{TP}\vert\ge0.58\ \mathrm{V}}
 $$
 
 At the minimum magnitude, the thresholds meet at $V_{\mathrm{in}}=0.42$ V. Any larger magnitude produces a both-OFF gap (assuming the thresholds remain within the rail range).
 
 ### Problem 4 — determine the switching point with unequal strengths
 
-Let $V_{DD}=1.00$ V, $V_{TN}=\lvert V_{TP}\rvert=0.30$ V, and $\beta_N=9\beta_P$. Under the long-channel saturation assumptions, compute $V_M$.
+Let $V_{DD}=1.00$ V, $V_{TN}=\vert V_{TP}\vert=0.30$ V, and $\beta_N=9\beta_P$. Under the long-channel saturation assumptions, compute $V_M$.
 
 **Solution.** Since $\sqrt{\beta_N}=3\sqrt{\beta_P}$,
 
@@ -1146,7 +1146,7 @@ $$
 V_M
 &=\frac{3(0.30)+(1.00-0.30)}{3+1}\\
 &=\frac{0.90+0.70}{4}\\
-&=\boxed{0.40\ \mathrm V}.
+&=\boxed{0.40\ \mathrm{V}}.
 \end{aligned}
 $$
 
@@ -1166,7 +1166,7 @@ $$
 With initial condition $V_{\mathrm{out}}(t_0)=0$,
 
 $$
-\boxed{V_{\mathrm{out}}(t)=0\ \mathrm V,\quad t\ge t_0}
+\boxed{V_{\mathrm{out}}(t)=0\ \mathrm{V},\quad t\ge t_0}
 $$
 
 If the output had initially been charged to $V_{DD}$ instead, it would remain at $V_{DD}$ in this *same idealization*. This demonstrates that the gap does not establish an unambiguous inverter output.
@@ -1200,7 +1200,7 @@ $$
 \boxed{
 \begin{aligned}
 \text{NMOS ON}&\iff V_{\mathrm{in}}>V_{TN},\\
-\text{PMOS ON}&\iff V_{\mathrm{in}}<V_{DD}-\lvert V_{TP}\rvert.
+\text{PMOS ON}&\iff V_{\mathrm{in}}<V_{DD}-\vert V_{TP}\vert.
 \end{aligned}
 }
 $$
@@ -1208,19 +1208,19 @@ $$
 Both can be ON together only if the two inequalities have a common solution:
 
 $$
-V_{TN}<V_{\mathrm{in}}<V_{DD}-\lvert V_{TP}\rvert.
+V_{TN}<V_{\mathrm{in}}<V_{DD}-\vert V_{TP}\vert.
 $$
 
 The overlap exists exactly when
 
 $$
-\boxed{V_{TN}+\lvert V_{TP}\rvert<V_{DD}}
+\boxed{V_{TN}+\vert V_{TP}\vert<V_{DD}}
 $$
 
 Thus the instructor's assumption
 
 $$
-\boxed{V_{TN}+\lvert V_{TP}\rvert\ge V_{DD}}
+\boxed{V_{TN}+\vert V_{TP}\vert\ge V_{DD}}
 $$
 
 **prevents both devices being ideal-ON at once**. More precisely:
@@ -1228,9 +1228,9 @@ $$
 $$
 \boxed{
 \begin{array}{ll}
-V_{TN}+\lvert V_{TP}\rvert<V_{DD}&\Rightarrow \text{finite both-ON interval},\\[3pt]
-V_{TN}+\lvert V_{TP}\rvert=V_{DD}&\Rightarrow \text{common switching boundary},\\[3pt]
-V_{TN}+\lvert V_{TP}\rvert>V_{DD}&\Rightarrow \text{finite both-OFF interval}.
+V_{TN}+\vert V_{TP}\vert<V_{DD}&\Rightarrow \text{finite both-ON interval},\\[3pt]
+V_{TN}+\vert V_{TP}\vert=V_{DD}&\Rightarrow \text{common switching boundary},\\[3pt]
+V_{TN}+\vert V_{TP}\vert>V_{DD}&\Rightarrow \text{finite both-OFF interval}.
 \end{array}
 }
 $$
